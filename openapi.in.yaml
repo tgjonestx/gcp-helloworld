@@ -1,0 +1,66 @@
+# [START swagger]
+swagger: "2.0"
+info:
+  description: "A simple helloworld Endpoints API example."
+  title: "Helloword Endpoints Example"
+  version: "1.0.0"
+host: "helloworld-api.endpoints.#PROJECT_NAME#.cloud.goog"
+# [END swagger]
+basePath: "/"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+schemes:
+- "https"
+paths:
+  "/":
+    get:
+      description: "root"
+      operationId: "root"
+      responses:
+        200:
+          description: "no response"
+      # security:
+      # - api_key: []
+
+  "/hello":
+    get:
+      description: "Say hello"
+      operationId: "hello"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "Say hello"
+          schema:
+            $ref: "#/definitions/greeting"
+      security:
+      - api_key: []
+  "/hello/world":
+    get:
+      description: "Say hello worldling"
+      operationId: "hello-world"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "Say hello worldling"
+          schema:
+            $ref: "#/definitions/greeting"
+      security:
+      - api_key: []
+
+definitions:
+  greeting:
+    properties:
+      message:
+        type: "string"
+
+# This section requires all requests to any path to require an API key.
+securityDefinitions:
+  # This section configures basic authentication with an API key.
+  api_key:
+    type: "apiKey"
+    name: "key"
+    in: "query"
