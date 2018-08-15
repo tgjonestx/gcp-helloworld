@@ -1,2 +1,2 @@
 # gcp-helloworld
-sandbox for gcp exploration
+sandbox for GCP exploration
