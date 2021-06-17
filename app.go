@@ -30,6 +30,7 @@ func main() {
 	if portStr := os.Getenv("PORT"); portStr != "" {
 		port, _ = strconv.Atoi(portStr)
 	}
+
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", port), nil))
 }
 
